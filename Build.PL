@@ -9,8 +9,7 @@ my $build = Module::Build->new(
     script_files => [ 'bin/mail_tempaddress_purge.pl' ],
 	license     => 'perl',
 	requires    => {
-		Mail::TempAddress => '0.53',
-		YAML              => '0.35',
+		Mail::TempAddress => '<=0.53',
 	},
 	dist_version_from => 'lib/Mail/TempAddress/Addresses/Purgeable.pm',
 );

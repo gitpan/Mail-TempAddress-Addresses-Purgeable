@@ -1,0 +1,3 @@
+0.11 - Initial Release to CPAN
+
+0.12 - Deprecation release.  Has been replaced by Mail::Action::Role::Purge

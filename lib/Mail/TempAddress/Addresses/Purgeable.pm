@@ -10,7 +10,7 @@ push @ISA, 'Mail::TempAddress::Addresses';
 use Mail::TempAddress::Address;
 
 use vars '$VERSION';
-$VERSION = 0.11;
+$VERSION = 0.12;
  
 use Fcntl ':flock';
 
@@ -69,13 +69,20 @@ __END__
 Mail::TempAddress::Addresses::Purgeable - manage and purge
 Mail::TempAddress::Address objects
 
+=head1 DEPRECATED
+
+This module is deprecated.  It has been replaced by
+Mail::Action::Role::Purge, which adds a role to any subclass of
+Mail::Action::Storage, including Mail::TempAddress::Addresses and
+Mail::SimpleList::Aliases.
+
 =head1 SYNOPSIS
 
   use Mail::TempAddress::Addresses::Purgeable;
   my $addresses = Mail::TempAddress::Addresses::Purgeable(
     '.addresses'
   );
-  
+
 =head1 DESCRIPTION
 
 Mail::TempAddress::Addresses::Purgeable extends
