@@ -1,0 +1,10 @@
+Build.PL
+bin/mail_tempaddress_purge.pl.PL
+lib/Mail/TempAddress/Addresses/Purgeable.pm
+Makefile.PL
+README
+MANIFEST			This list of files
+META.yml
+t/purge.t
+t/script.t
+

@@ -1,0 +1,53 @@
+NAME
+    Mail::TempAddress::Addresses::Purgeable - manage and purge
+    Mail::TempAddress::Address objects
+
+SYNOPSIS
+      use Mail::TempAddress::Addresses::Purgeable;
+      my $addresses = Mail::TempAddress::Addresses::Purgeable(
+        '.addresses'
+      );
+  
+DESCRIPTION
+    Mail::TempAddress::Addresses::Purgeable extends
+    Mail::TempAddress::Addresses to provide the ability to purge expired
+    address data files.
+
+METHODS
+    * purge( [ $min_expired_age ] )
+        The purge method iterates through each data file found in the
+        addresses directory. Each data file is loaded into a
+        Mail::TempAddress::Address object and it's expiry date (if any) is
+        compared against the current time. Any object which is expired will
+        have it's data file removed from the filesystem.
+
+        By default each object need only be expired. Passing the
+        $min_expired_age requires that the object have been expired for at
+        least that many seconds. The minimum age may also be passed using a
+        freeform expression like '1h30m' or '2m1w'. See "Expires" in
+        Mail::TempAddress for more details.
+
+        For example, if an address object is set to expire at Mon Oct 27
+        19:31:39 2003 and the purge() routine is run at 19:33 with an
+        argument of 300, then the data file for the object will not be
+        deleted. If the purge method were to be called at 19:36:40 or any
+        time thereafter then the data file will be deleted.
+
+    * addresses()
+        The <data_files> method returns a list or list reference (depending
+        on calling context) of the addresses in the address directory.
+
+AUTHOR
+    James FitzGibbon <jfitz@CPAN.ORG>
+
+TODO
+    Major things. chromatic's modules Mail::TempAddress and Mail::SimpleList
+    have large quantities of similar code and he plans to factor that out
+    into a separate base class. Once that happens, the functionality
+    provided by this module would better be implemented as a mixin (see
+    mixin).
+
+COPYRIGHT
+    Copyright (c) 2003, James FitzGibbon. All rights reserved. This module
+    is distributed under the same terms as Perl itself.
+

@@ -1,0 +1,16 @@
+--- #YAML:1.0
+name: Mail-TempAddress-Addresses-Purgeable
+version: 0.11
+license: perl
+distribution_type: module
+requires:
+  Mail::TempAddress: 0.53
+  YAML: 0.35
+recommends: {}
+build_requires: {}
+conflicts: {}
+provides:
+  Mail::TempAddress::Addresses::Purgeable:
+    file: lib/Mail/TempAddress/Addresses/Purgeable.pm
+    version: 0.11
+generated_by: Module::Build version 0.21
